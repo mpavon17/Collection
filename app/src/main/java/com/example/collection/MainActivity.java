@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference bartReference;
 
     Button boton1;
+    Button getBoton1;
     EditText nombre1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
