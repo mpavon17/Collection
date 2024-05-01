@@ -30,7 +30,7 @@
                 android:gravity="right"
                 android:orientation="horizontal">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/img1"
                     android:layout_width="66dp"
                     android:layout_height="match_parent"
@@ -39,6 +39,7 @@
                     android:background="#FF5722"
                     android:cropToPadding="true"
                     android:scaleType="fitCenter"
+                    android:onClick="inicio"
                     app:srcCompat="@drawable/home" />
 
                 <Button
@@ -57,7 +58,7 @@
 
                 <Button
                     android:id="@+id/btn1"
-                    android:layout_width="139dp"
+                    android:layout_width="103dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:layout_weight="1"
@@ -66,12 +67,17 @@
                     android:textColor="#0B0101"
                     android:textSize="15sp" />
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="72dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/web" />
+                <ImageButton
+                    android:id="@+id/salir"
+                    android:layout_width="50dp"
+                    android:layout_height="66dp"
+                    android:adjustViewBounds="true"
+                    android:onClick="salir"
+                    android:background="@null"
+                    android:cropToPadding="true"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/cerrar" />
+
 
             </LinearLayout>
 
