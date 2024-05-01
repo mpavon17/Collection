@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference bartReference;
 
     Button boton1;
-    Button getBoton1;
     EditText nombre1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 db.getReference().child("Bart").setValue(nombre1.getText().toString());
             }
         });
-
-    }
-
-    public void insertar(View vista) {
-
 
     }
 }
