@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        nombre1 = findViewById(R.id.editTextText);
-        boton1 = findViewById(R.id.button);
+        //nombre1 = findViewById(R.id.editTextText);
+        boton1 = findViewById(R.id.btn1);
         db = FirebaseDatabase.getInstance();
         bartReference = db.getReference();
         boton1.setOnClickListener(new View.OnClickListener() {
