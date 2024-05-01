@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FF5722"
+        android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,10 +30,9 @@
                 android:gravity="right"
                 android:orientation="horizontal">
 
-                <!-- Cambios aplicados: Ajuste de dimensiones del botón btn1 -->
                 <ImageView
                     android:id="@+id/img1"
-                    android:layout_width="92dp"
+                    android:layout_width="66dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
@@ -44,10 +44,11 @@
                 <Button
                     android:id="@+id/btn2"
                     android:layout_width="81dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:layout_weight="1"
                     android:backgroundTint="#FF5722"
+                    android:onClick="agregar"
                     android:text="+"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textColor="#0B0808"
@@ -56,22 +57,30 @@
 
                 <Button
                     android:id="@+id/btn1"
-                    android:layout_width="106dp"
+                    android:layout_width="139dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:layout_weight="1"
                     android:backgroundTint="#FF5722"
-                    android:text="Coollections"
+                    android:text="Mis Coollections"
                     android:textColor="#0B0101"
-                    android:textSize="20sp" />
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="72dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/web" />
 
             </LinearLayout>
 
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/frameagregar"
             android:layout_width="480dp"
-            android:layout_height="592dp"
+            android:layout_height="583dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
@@ -83,7 +92,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
             android:background="#FF5722">
 
