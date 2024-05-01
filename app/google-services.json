@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "219345003579",
+    "firebase_url": "https://coollections-b5ab8-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "coollections-b5ab8",
+    "storage_bucket": "coollections-b5ab8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219345003579:android:7887627ce35aa5c076a81e",
+        "android_client_info": {
+          "package_name": "com.example.collection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsU8scV3kt1wnZRlYs8MuhAUZ-ULlsXfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
