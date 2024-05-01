@@ -46,5 +46,22 @@
             android:backgroundTint="#FF5722"
             android:text="OK" />
 
+        <ImageView
+            android:id="@+id/google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cropToPadding="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/signup" />
+
+        <ImageView
+            android:id="@+id/facebook"
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/signupface" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
