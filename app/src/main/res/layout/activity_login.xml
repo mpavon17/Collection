@@ -28,23 +28,16 @@
             android:layout_width="335dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Usuario"
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="Usuario" />
 
         <EditText
             android:id="@+id/password"
             android:layout_width="335dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/registro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="insertar"
-            android:text="Registro" />
+            android:inputType="textPassword"
+            android:text="password" />
 
         <Button
             android:id="@+id/ok"
