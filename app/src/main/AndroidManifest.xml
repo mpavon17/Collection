@@ -13,9 +13,6 @@
         android:theme="@style/Theme.Collection"
         tools:targetApi="31">
         <activity
-            android:name=".Agregar"
-            android:exported="false" />
-        <activity
             android:name=".P_Principal"
             android:exported="false" />
         <activity
