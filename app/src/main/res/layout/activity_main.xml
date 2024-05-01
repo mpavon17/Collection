@@ -63,7 +63,7 @@
                     android:backgroundTint="#FF5722"
                     android:text="Coollections"
                     android:textColor="#0B0101"
-                    android:textSize="15sp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
