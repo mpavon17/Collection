@@ -55,4 +55,13 @@ public class MainActivity extends AppCompatActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
+
+    public void discos(View v) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        Discos d = new Discos();
+        ft.replace(R.id.frameagregar,d);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
 }

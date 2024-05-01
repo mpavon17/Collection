@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#FF5722"
+            android:onClick="discos"
             android:text="Colección de Discos" />
 
         <Button
