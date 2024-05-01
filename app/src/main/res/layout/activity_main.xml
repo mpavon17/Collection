@@ -55,12 +55,14 @@
 
                 <Button
                     android:id="@+id/btn1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="106dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
                     android:layout_weight="1"
                     android:backgroundTint="#FF5722"
-                    android:text="btn1" />
+                    android:text="Coollections"
+                    android:textColor="#0B0101"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
