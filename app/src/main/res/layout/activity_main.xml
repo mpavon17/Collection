@@ -29,6 +29,7 @@
                 android:gravity="right"
                 android:orientation="horizontal">
 
+                <!-- Cambios aplicados: Ajuste de dimensiones del botón btn1 -->
                 <ImageView
                     android:id="@+id/img1"
                     android:layout_width="92dp"
@@ -96,3 +97,4 @@
         </FrameLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
