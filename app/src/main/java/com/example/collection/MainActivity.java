@@ -1,16 +1,15 @@
 package com.example.collection;
 
+import static android.app.PendingIntent.getActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     public void agregar(View v) {
@@ -65,12 +63,14 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    public void colecciones (View vista){
+    public void mostrar(View v) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        MisColecciones c = new MisColecciones();
-        ft.replace(R.id.frameagregar,c);
+        MostrarDiscos m = new MostrarDiscos();
+        ft.replace(R.id.frameagregar,m);
         ft.addToBackStack(null);
         ft.commit();
     }
+
+
 }

@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,8 +55,8 @@ public class Discos extends Fragment {
 
                     DatabaseReference usuarioDiscosRef = db.child("usuarios").child(usuario).child("Discos").child(grupoTexto).child(albumTexto);
 
-                    usuarioDiscosRef.child("Año").setValue(anoTexto);
-                    usuarioDiscosRef.child("Fecha de Adquisicion").setValue(fAdquisicionTexto);
+                    usuarioDiscosRef.child("Anio").setValue(anoTexto);
+                    usuarioDiscosRef.child("FechadeAdquisicion").setValue(fAdquisicionTexto);
                     usuarioDiscosRef.child("Formato").setValue(cdMarcado ? "CD" : "Vinilo");
 
                     Toast.makeText(getActivity(), "Disco guardado exitosamente", Toast.LENGTH_SHORT).show();
@@ -68,5 +67,6 @@ public class Discos extends Fragment {
         });
         return view;
     }
+
 }
 

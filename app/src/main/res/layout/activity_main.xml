@@ -64,7 +64,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FF5722"
                     android:text="Mis Coollections"
-                    android:onClick="colecciones"
+                    android:onClick="mostrar"
                     android:textColor="#0B0101"
                     android:textSize="15sp" />
 
@@ -86,7 +86,7 @@
 
         <FrameLayout
             android:id="@+id/frameagregar"
-            android:layout_width="480dp"
+            android:layout_width="380dp"
             android:layout_height="583dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
