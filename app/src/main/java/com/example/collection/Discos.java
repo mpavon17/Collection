@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -45,21 +47,27 @@ public class Discos extends Fragment {
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String grupoTexto = grupo.getText().toString();
                 String albumTexto = album.getText().toString();
                 String anoTexto = anio.getText().toString();
                 String fAdquisicionTexto = fAdquisicion.getText().toString();
-                String cdTexto = cd.getText().toString();
-                String vinilTexto = vinil.getText().toString();
+                boolean cdMarcado = cd.isChecked(); // Verifica si está marcado el CheckBox de CD
 
-                DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-                db.child("Discos").child(grupoTexto).child(albumTexto).child("Año").setValue(anoTexto);
-                db.child("Discos").child(grupoTexto).child(albumTexto).child("Fecha de Adquisicion").setValue(fAdquisicionTexto);
-                if (cd.isChecked()) {
-                    db.child("Discos").child(grupoTexto).child(albumTexto).child("Formato").setValue(cdTexto);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    String usuario = user.getUid();
+                    DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+
+                    DatabaseReference usuarioDiscosRef = db.child("usuarios").child(usuario).child("Discos").child(grupoTexto).child(albumTexto);
+
+                    usuarioDiscosRef.child("Año").setValue(anoTexto);
+                    usuarioDiscosRef.child("Fecha de Adquisicion").setValue(fAdquisicionTexto);
+                    usuarioDiscosRef.child("Formato").setValue(cdMarcado ? "CD" : "Vinilo");
+
+                    Toast.makeText(getActivity(), "Disco guardado exitosamente", Toast.LENGTH_SHORT).show();
                 } else {
-                    db.child("Discos").child(grupoTexto).child(albumTexto).child("Formato").setValue(vinilTexto);
+                    // El usuario no está autenticado, manejar esta situación según tu lógica de la aplicación
+                    Toast.makeText(getActivity(), "No se pudo guardar el disco. Usuario no autenticado.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
