@@ -12,24 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Collection"
         tools:targetApi="31">
+
+        <!-- Asegúrate de que la actividad Agregar tenga exported="true" si es lanzada desde otra actividad -->
         <activity
             android:name=".Agregar"
-            android:exported="false" />
+            android:exported="true" />
+
         <activity
             android:name=".P_Principal"
             android:exported="false" />
+
         <activity
             android:name=".Login"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

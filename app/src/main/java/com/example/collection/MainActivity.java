@@ -5,11 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DatabaseReference;
@@ -19,24 +17,26 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseDatabase db;
     private ChildEventListener childEventListener;
-    DatabaseReference bartReference;
+    private DatabaseReference bartReference;
 
-    Button boton1;
-    EditText nombre1;
+    private Button boton1;
+    private Button btn2;
+    private EditText nombre1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //nombre1 = findViewById(R.id.editTextText);
-        boton1 = findViewById(R.id.btn1);
-        db = FirebaseDatabase.getInstance();
-        bartReference = db.getReference();
-        boton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                db.getReference().child("Bart").setValue(nombre1.getText().toString());
-            }
-        });
 
+
+    }
+
+    public void agregar(View v) {
+        FragmentManager fm = getSupportFragmentManager();
+        Agregar a = new Agregar();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.FrameAgregar, a);
+        ft.addToBackStack(null);
+        ft.commit();
     }
 }
