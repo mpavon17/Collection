@@ -1,31 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Discos">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- LinearLayout para el Grupo -->
+    <!-- EditTexts para el Grupo, Título, Año y Fecha de Adquisición -->
     <LinearLayout
-        android:id="@+id/llGrupo"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="32dp"
-        android:gravity="center_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.5">
-
-        <!-- TextView para el Grupo -->
-        <TextView
-            android:id="@+id/TvGrupo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Grupo"
-            android:textSize="20sp" />
+        android:orientation="horizontal">
 
         <!-- EditText para el Grupo -->
         <EditText
@@ -33,34 +19,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
-
-    </LinearLayout>
-
-    <!-- LinearLayout para el Título -->
-    <LinearLayout
-        android:id="@+id/llTitulo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/llGrupo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5">
-
-        <!-- TextView para el Título -->
-        <TextView
-            android:id="@+id/TvTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Título"
-            android:textSize="20sp" />
+            android:layout_marginEnd="8dp"
+            android:hint="Grupo"
+            android:inputType="text" />
 
         <!-- EditText para el Título -->
         <EditText
@@ -68,34 +29,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
-
-    </LinearLayout>
-
-    <!-- LinearLayout para el Año -->
-    <LinearLayout
-        android:id="@+id/llAnio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/llTitulo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5">
-
-        <!-- TextView para el Año -->
-        <TextView
-            android:id="@+id/TvAnio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Año"
-            android:textSize="20sp" />
+            android:layout_marginEnd="8dp"
+            android:hint="Título"
+            android:inputType="text" />
 
         <!-- EditText para el Año -->
         <EditText
@@ -103,34 +39,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
-
-    </LinearLayout>
-
-    <!-- LinearLayout para la Fecha de Adquisición -->
-    <LinearLayout
-        android:id="@+id/llFechaAdquisicion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/llAnio"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5">
-
-        <!-- TextView para la Fecha de Adquisición -->
-        <TextView
-            android:id="@+id/TvFechaAdquisicion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha de Adquisición"
-            android:textSize="20sp" />
+            android:layout_marginEnd="8dp"
+            android:hint="Año"
+            android:inputType="text" />
 
         <!-- EditText para la Fecha de Adquisición -->
         <EditText
@@ -138,59 +49,42 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:hint="Fecha de Adquisición"
+            android:inputType="text" />
 
     </LinearLayout>
 
     <!-- TextView para los formatos -->
-
-    <!-- CheckBox para CD -->
     <TextView
         android:id="@+id/TvFormato"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="Formato"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/CbVinilo"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llFechaAdquisicion" />
+        android:textSize="20sp" />
 
-    <!-- CheckBox para Vinilo -->
+    <!-- CheckBox para CD -->
     <CheckBox
         android:id="@+id/CbCd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CD"
-        app:layout_constraintBaseline_toBaselineOf="@+id/TvFormato"
-        app:layout_constraintEnd_toStartOf="@+id/CbVinilo"
-        app:layout_constraintStart_toEndOf="@+id/TvFormato" />
+        android:text="CD" />
 
+    <!-- CheckBox para Vinilo -->
     <CheckBox
         android:id="@+id/CbVinilo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vinilo"
-        app:layout_constraintBaseline_toBaselineOf="@+id/TvFormato"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/CbCd" />
+        android:text="Vinilo" />
 
     <!-- Botón de añadir -->
     <Button
         android:id="@+id/btnAñadir"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Añadir"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CbCd" />
+        android:layout_gravity="center"
+        android:text="Añadir" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+
