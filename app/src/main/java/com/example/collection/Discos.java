@@ -20,17 +20,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Discos extends Fragment {
-
-
     EditText grupo, album, anio, fAdquisicion;
-
     CheckBox cd, vinil;
     Button guardar;
 
     public Discos() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,7 +62,6 @@ public class Discos extends Fragment {
 
                     Toast.makeText(getActivity(), "Disco guardado exitosamente", Toast.LENGTH_SHORT).show();
                 } else {
-                    // El usuario no está autenticado, manejar esta situación según tu lógica de la aplicación
                     Toast.makeText(getActivity(), "No se pudo guardar el disco. Usuario no autenticado.", Toast.LENGTH_SHORT).show();
                 }
             }

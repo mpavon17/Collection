@@ -128,8 +128,7 @@ public class Login extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
-                // Google Sign In failed, update UI appropriately
-                Toast.makeText(Login.this, "Google sign in failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Google sign in fallado", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -141,13 +140,11 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
-                            Toast.makeText(Login.this, "Google sign in successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Google sign in ", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(Login.this, "Google sign in failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Google sign in fallado", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

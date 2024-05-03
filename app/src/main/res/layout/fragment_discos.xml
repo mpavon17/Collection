@@ -162,6 +162,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llFechaAdquisicion" />
 
+    <!-- CheckBox para Vinilo -->
     <CheckBox
         android:id="@+id/CbCd"
         android:layout_width="wrap_content"
@@ -171,7 +172,6 @@
         app:layout_constraintEnd_toStartOf="@+id/CbVinilo"
         app:layout_constraintStart_toEndOf="@+id/TvFormato" />
 
-    <!-- CheckBox para Vinilo -->
     <CheckBox
         android:id="@+id/CbVinilo"
         android:layout_width="wrap_content"
