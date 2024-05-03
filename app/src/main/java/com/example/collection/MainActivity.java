@@ -64,4 +64,13 @@ public class MainActivity extends AppCompatActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
+
+    public void colecciones (View vista){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        MisColecciones c = new MisColecciones();
+        ft.replace(R.id.frameagregar,c);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
 }

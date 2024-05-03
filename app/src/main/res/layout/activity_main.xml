@@ -64,6 +64,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="#FF5722"
                     android:text="Mis Coollections"
+                    android:onClick="colecciones"
                     android:textColor="#0B0101"
                     android:textSize="15sp" />
 
