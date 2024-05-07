@@ -6,16 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FEFEFE"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="52dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/logo_caja"
-        tools:layout_editor_absoluteY="15dp" />
+    tools:context=".Home">
 
     <LinearLayout
         android:layout_width="413dp"
@@ -97,5 +88,72 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="417dp"
+        android:layout_height="225dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="72dp">
+
+        <TextView
+            android:id="@+id/recent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Recent Activities"
+            android:textColor="#7A7979"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="330dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/listDivider" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="299dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="297dp">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="How to use it?"
+            android:textAlignment="textStart"
+            android:textColor="#7A7979"
+            android:textSize="16sp" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="330dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="?android:attr/listDivider" />
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="273dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/home1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="45dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

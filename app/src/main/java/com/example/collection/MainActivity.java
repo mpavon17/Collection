@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         Agregar a = new Agregar();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.FrameAgregar, a);
+        //ft.replace(R.id.fragment_agregar, a);
         ft.addToBackStack(null);
         ft.commit();
     }
