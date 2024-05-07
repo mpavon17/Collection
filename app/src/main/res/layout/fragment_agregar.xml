@@ -8,7 +8,7 @@
     tools:context=".Agregar">
 
     <LinearLayout
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,36 +23,58 @@
             android:text="Elige una Colección"
             android:textAlignment="center"
             android:textColor="#070101"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp" /> <!-- Añade margen inferior -->
 
-        <Button
-            android:id="@+id/discos"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF5722"
-            android:onClick="discos"
-            android:text="Colección de Discos" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/camisetas"
+            <Button
+                android:id="@+id/discos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FF5722"
+                android:onClick="discos"
+                android:text="Discos"
+                android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
+
+            <Button
+                android:id="@+id/camisetas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="discos"
+                android:backgroundTint="#FF5722"
+                android:text="Camisetas"
+                android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FF5722"
-            android:text="Colección de Camisetas" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/mecheros"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FF5722"
-            android:text="Colección de Mecheros" />
+            <Button
+                android:id="@+id/mecheros"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FF5722"
+                android:text="Mecheros"
+                android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
 
-        <Button
-            android:id="@+id/cine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FF5722"
-            android:text="Colección de Cine" />
+            <Button
+                android:id="@+id/cine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FF5722"
+                android:text="Cine"
+                android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView2"
@@ -61,13 +83,15 @@
             android:text="Crea tu Coollection"
             android:textAlignment="center"
             android:textColor="#090505"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginTop="16dp" /> <!-- Añade margen superior -->
 
         <Button
             android:id="@+id/custom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#FF5722"
-            android:text="Customizable" />
+            android:text="Customizable"
+            android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,7 +58,20 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         Discos d = new Discos();
-        ft.replace(R.id.frameagregar,d);
+        Button btnDiscos = findViewById(R.id.discos);
+        Button btnCamisetas = findViewById(R.id.camisetas);
+
+        String coleccionSeleccionada = "";
+        if (btnDiscos.isPressed()) {
+            coleccionSeleccionada = "Discos";
+        } else if (btnCamisetas.isPressed()) {
+            coleccionSeleccionada = "Camisetas";
+        }
+        Bundle args = new Bundle();
+        args.putString("coleccionSeleccionada", coleccionSeleccionada);
+        d.setArguments(args);
+
+        ft.replace(R.id.frameagregar, d);
         ft.addToBackStack(null);
         ft.commit();
     }

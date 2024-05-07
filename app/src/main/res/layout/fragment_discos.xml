@@ -2,89 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
-
-    <!-- EditTexts para el Grupo, Título, Año y Fecha de Adquisición -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <!-- EditText para el Grupo -->
-        <EditText
-            android:id="@+id/EtGrupo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:hint="Grupo"
-            android:inputType="text" />
-
-        <!-- EditText para el Título -->
-        <EditText
-            android:id="@+id/EtTitulo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:hint="Título"
-            android:inputType="text" />
-
-        <!-- EditText para el Año -->
-        <EditText
-            android:id="@+id/EtAnio"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:hint="Año"
-            android:inputType="text" />
-
-        <!-- EditText para la Fecha de Adquisición -->
-        <EditText
-            android:id="@+id/EtFechaAdquisicion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Fecha de Adquisición"
-            android:inputType="text" />
-
-    </LinearLayout>
-
-    <!-- TextView para los formatos -->
-    <TextView
-        android:id="@+id/TvFormato"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Formato"
-        android:textSize="20sp" />
-
-    <!-- CheckBox para CD -->
-    <CheckBox
-        android:id="@+id/CbCd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CD" />
-
-    <!-- CheckBox para Vinilo -->
-    <CheckBox
-        android:id="@+id/CbVinilo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vinilo" />
-
-    <!-- Botón de añadir -->
-    <Button
-        android:id="@+id/btnAñadir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_gravity="center"
-        android:text="Añadir" />
-
 </LinearLayout>
-
