@@ -52,12 +52,15 @@ public class MostrarDiscos extends Fragment {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
             String uid = currentUser.getUid();
-            dbr.child("usuarios").child(uid).child("Discos").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            dbr.child("usuarios").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     discosKeys.clear();
                     if (task.isSuccessful() && task.getResult().getValue() != null) {
-                        discosKeys.add("Discos");
+                        for (DataSnapshot snapshot : task.getResult().getChildren()) {
+                            String key = snapshot.getKey();
+                            discosKeys.add(key);
+                        }
                     }
                     discosArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, discosKeys);
                     lvDiscos.setAdapter(discosArrayAdapter);
@@ -75,12 +78,13 @@ public class MostrarDiscos extends Fragment {
         lvDiscos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // Aquí puedes obtener el elemento de la lista seleccionado si lo necesitas
                 String selectedDisc = discosArrayAdapter.getItem(position);
-
-                // Aquí puedes realizar la navegación al fragmento deseado
-                // Por ejemplo, para navegar a otro fragmento llamado DetalleDiscoFragment:
                 Fragment detalleDiscoFragment = new BbddDiscos();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("selectedDisc", selectedDisc);
+                detalleDiscoFragment.setArguments(bundle);
+
                 FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
                 transaction.replace(R.id.frameagregar, detalleDiscoFragment);
                 transaction.addToBackStack(null); // Esto permite volver atrás
@@ -88,4 +92,5 @@ public class MostrarDiscos extends Fragment {
             }
         });
     }
+
 }

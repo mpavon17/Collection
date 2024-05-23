@@ -31,6 +31,7 @@ public class BbddDiscos extends Fragment {
     private List<String> discosKeys;
     private ListView lvDiscos;
     private ArrayAdapter<String> discosArrayAdapter;
+    private String selectedDisc; // Declarar selectedDisc como campo de clase
 
     public BbddDiscos() {
         // Required empty public constructor
@@ -41,18 +42,26 @@ public class BbddDiscos extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mostrar_discos, container, false);
         lvDiscos = view.findViewById(R.id.lvDiscos);
+
+        // Obtener el argumento pasado al fragmento
+        Bundle args = getArguments();
+        if (args != null) {
+            selectedDisc = args.getString("selectedDisc");
+        }
+
         discosKeys = new ArrayList<>();
         inicializarFirebase();
         listarDatos();
         configurarListenerClick();
+
         return view;
     }
 
     private void listarDatos() {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (currentUser != null) {
+        if (currentUser != null && selectedDisc != null) {
             String uid = currentUser.getUid();
-            dbr.child("usuarios").child(uid).child("Discos").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            dbr.child("usuarios").child(uid).child(selectedDisc).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     discosKeys.clear();
@@ -69,16 +78,14 @@ public class BbddDiscos extends Fragment {
         }
     }
 
-
     private void configurarListenerClick() {
         lvDiscos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-
                 String selectedDisc = discosArrayAdapter.getItem(position);
-
                 mostrarDiscosbbdd fragment = new mostrarDiscosbbdd();
                 Bundle args = new Bundle();
+                args.putString("selectedDisc", selectedDisc);
                 args.putString("nombreGrupo", selectedDisc);
                 fragment.setArguments(args);
                 FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
@@ -88,9 +95,6 @@ public class BbddDiscos extends Fragment {
             }
         });
     }
-
-
-
 
     private void inicializarFirebase() {
         FirebaseDatabase db = FirebaseDatabase.getInstance();

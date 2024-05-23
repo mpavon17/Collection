@@ -1,5 +1,7 @@
 package com.example.collection;
 
+import android.annotation.SuppressLint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -41,22 +43,9 @@ public class Discos extends Fragment {
         String finalColeccionSeleccionada = coleccionSeleccionada;
 
         if ("Discos".equals(finalColeccionSeleccionada)) {
-            Toast.makeText(getActivity(), "Discos", Toast.LENGTH_SHORT).show();
             interfazDiscos(view);
         } else if ("Camisetas".equals(finalColeccionSeleccionada)) {
-            Toast.makeText(getActivity(), "Camisetas", Toast.LENGTH_SHORT).show();
-
-            // Crear un EditText dinámicamente
-            EditText editTextCamisetas = new EditText(getActivity());
-            editTextCamisetas.setLayoutParams(new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
-            ));
-            editTextCamisetas.setHint("Ingrese la talla de la camiseta");
-
-            // Añadir el EditText al layout
-            LinearLayout layout = view.findViewById(R.id.main);
-            layout.addView(editTextCamisetas);
+            interfazCamisetas(view);
         }
 
         return view;
@@ -64,6 +53,7 @@ public class Discos extends Fragment {
 
 
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void interfazDiscos(View vista) {
         // Crear el diseño principal LinearLayout
         LinearLayout mainLayout = new LinearLayout(getContext());
@@ -84,144 +74,64 @@ public class Discos extends Fragment {
         // Añadir el LinearLayout principal al ScrollView
         scrollView.addView(mainLayout);
 
-        // Crear LinearLayout para Grupo
-        LinearLayout grupoLayout = new LinearLayout(getContext());
-        LinearLayout.LayoutParams grupoParams = new LinearLayout.LayoutParams(
+        // Array de nombres para los campos
+        String[] nombresCampos = {"Grupo", "Álbum", "Año", "Fecha de Adquisición"};
+
+        // Array para los EditText correspondientes
+        EditText[] editTexts = new EditText[nombresCampos.length];
+
+        // Agregar los elementos al diseño principal
+        for (int i = 0; i < nombresCampos.length; i++) {
+            // Crear LinearLayout para el grupo actual
+            LinearLayout grupoLayout = new LinearLayout(getContext());
+            grupoLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            ));
+            grupoLayout.setOrientation(LinearLayout.VERTICAL);
+            grupoLayout.setPadding(0, 0, 0, 32);
+            mainLayout.addView(grupoLayout);
+
+            // Crear TextView para el campo actual
+            TextView textView = new TextView(getContext());
+            textView.setText(nombresCampos[i]);
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+            grupoLayout.addView(textView);
+
+            // Crear EditText para el campo actual
+            EditText editText = new EditText(getContext());
+            editText.setHint(nombresCampos[i]);
+            editTexts[i] = editText;
+            editText.setBackground(getResources().getDrawable(R.drawable.style_borde_et));
+            grupoLayout.addView(editText);
+        }
+
+        // Crear TextView para los checkboxes de Formato
+        TextView formatoTextView = new TextView(getContext());
+        formatoTextView.setText("Formato");
+        formatoTextView.setTypeface(null, Typeface.BOLD);
+        formatoTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+        mainLayout.addView(formatoTextView);
+
+        // Crear LinearLayout para los checkboxes de Formato
+        LinearLayout formatoCheckboxLayout = new LinearLayout(getContext());
+        formatoCheckboxLayout.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        grupoParams.setMargins(0, 0, 0, 32); // Margen inferior aumentado
-        grupoLayout.setLayoutParams(grupoParams);
-        grupoLayout.setOrientation(LinearLayout.HORIZONTAL);
-        mainLayout.addView(grupoLayout);
-
-        // Crear TextView para Grupo
-        TextView tvGrupo = new TextView(getContext());
-        LinearLayout.LayoutParams tvParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        tvParams.weight = 1;
-        tvGrupo.setLayoutParams(tvParams);
-        tvGrupo.setText("Grupo");
-        grupoLayout.addView(tvGrupo);
-
-        // Crear EditText para Grupo
-        EditText etGrupo = new EditText(getContext());
-        LinearLayout.LayoutParams etParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        etParams.weight = 1;
-        etGrupo.setLayoutParams(etParams);
-        etGrupo.setHint("Grupo");
-        grupoLayout.addView(etGrupo);
-
-        // Repetir el mismo proceso para los otros elementos (Álbum, Año, Fecha de Adquisición)
-
-        // Crear LinearLayout para Álbum
-        LinearLayout albumLayout = new LinearLayout(getContext());
-        LinearLayout.LayoutParams albumParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        albumParams.setMargins(0, 0, 0, 32); // Margen inferior aumentado
-        albumLayout.setLayoutParams(albumParams);
-        albumLayout.setOrientation(LinearLayout.HORIZONTAL);
-        mainLayout.addView(albumLayout);
-
-        // Crear TextView para Álbum
-        TextView tvAlbum = new TextView(getContext());
-        tvAlbum.setLayoutParams(tvParams);
-        tvAlbum.setText("Álbum");
-        albumLayout.addView(tvAlbum);
-
-        // Crear EditText para Álbum
-        EditText etAlbum = new EditText(getContext());
-        etAlbum.setLayoutParams(etParams);
-        etAlbum.setHint("Álbum");
-        albumLayout.addView(etAlbum);
-
-        // Crear LinearLayout para Año
-        LinearLayout añoLayout = new LinearLayout(getContext());
-        LinearLayout.LayoutParams añoParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        añoParams.setMargins(0, 0, 0, 32); // Margen inferior aumentado
-        añoLayout.setLayoutParams(añoParams);
-        añoLayout.setOrientation(LinearLayout.HORIZONTAL);
-        mainLayout.addView(añoLayout);
-
-        // Crear TextView para Año
-        TextView tvAño = new TextView(getContext());
-        tvAño.setLayoutParams(tvParams);
-        tvAño.setText("Año");
-        añoLayout.addView(tvAño);
-
-        // Crear EditText para Año
-        EditText etAño = new EditText(getContext());
-        etAño.setLayoutParams(etParams);
-        etAño.setHint("Año");
-        añoLayout.addView(etAño);
-
-        // Crear LinearLayout para Fecha de Adquisición
-        LinearLayout fechaLayout = new LinearLayout(getContext());
-        LinearLayout.LayoutParams fechaParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        fechaParams.setMargins(0, 0, 0, 32); // Margen inferior aumentado
-        fechaLayout.setLayoutParams(fechaParams);
-        fechaLayout.setOrientation(LinearLayout.HORIZONTAL);
-        mainLayout.addView(fechaLayout);
-
-        // Crear TextView para Fecha de Adquisición
-        TextView tvFecha = new TextView(getContext());
-        tvFecha.setLayoutParams(tvParams);
-        tvFecha.setText("Fecha de Adquisición");
-        fechaLayout.addView(tvFecha);
-
-        // Crear EditText para Fecha de Adquisición
-        EditText etFecha = new EditText(getContext());
-        etFecha.setLayoutParams(etParams);
-        etFecha.setHint("Fecha de Adquisición");
-        fechaLayout.addView(etFecha);
-
-        // Repetir el mismo proceso para Formato
-
-        // Crear LinearLayout para Formato
-        LinearLayout formatoLayout = new LinearLayout(getContext());
-        LinearLayout.LayoutParams formatoParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        formatoParams.setMargins(0, 0, 0, 32); // Margen inferior aumentado
-        formatoLayout.setLayoutParams(formatoParams);
-        formatoLayout.setOrientation(LinearLayout.HORIZONTAL);
-        mainLayout.addView(formatoLayout);
-
-        // Crear TextView para Formato
-        TextView tvFormato = new TextView(getContext());
-        tvFormato.setLayoutParams(tvParams);
-        tvFormato.setText("Formato");
-        formatoLayout.addView(tvFormato);
+        ));
+        formatoCheckboxLayout.setOrientation(LinearLayout.HORIZONTAL);
+        mainLayout.addView(formatoCheckboxLayout);
 
         // Crear CheckBox para CD
         CheckBox cbCd = new CheckBox(getContext());
-        LinearLayout.LayoutParams cbParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-        );
-        cbCd.setLayoutParams(cbParams);
         cbCd.setText("CD");
-        formatoLayout.addView(cbCd);
+        formatoCheckboxLayout.addView(cbCd);
 
         // Crear CheckBox para Vinilo
         CheckBox cbVinilo = new CheckBox(getContext());
-        cbVinilo.setLayoutParams(cbParams);
         cbVinilo.setText("Vinilo");
-        formatoLayout.addView(cbVinilo);
+        formatoCheckboxLayout.addView(cbVinilo);
 
         // Crear Button para Añadir
         Button btnAñadir = new Button(getContext());
@@ -242,11 +152,11 @@ public class Discos extends Fragment {
                     String usuario = user.getUid();
                     DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
-                    DatabaseReference usuarioDiscosRef = db.child("usuarios").child(usuario).child("Discos").child(etGrupo.getText().toString()).child(etAlbum.getText().toString());
+                    DatabaseReference usuarioDiscosRef = db.child("usuarios").child(usuario).child("Discos").child(editTexts[0].getText().toString()).child(editTexts[1].getText().toString());
 
-                    usuarioDiscosRef.child("Anio").setValue(etAño.getText().toString());
-                    usuarioDiscosRef.child("FechadeAdquisicion").setValue(etFecha.getText().toString());
-                    usuarioDiscosRef.child("Formato").setValue(cbCd.isChecked() ? "CD" : "Vinilo");
+                    usuarioDiscosRef.child("Anio").setValue(editTexts[2].getText().toString());
+                    usuarioDiscosRef.child("FechadeAdquisicion").setValue(editTexts[3].getText().toString());
+                    usuarioDiscosRef.child("Formato").setValue(cbCd.isChecked() ? "CD" : (cbVinilo.isChecked() ? "Vinilo" : ""));
 
                     Toast.makeText(getActivity(), "Disco guardado exitosamente", Toast.LENGTH_SHORT).show();
                 } else {
@@ -254,8 +164,92 @@ public class Discos extends Fragment {
                 }
             }
         });
-
-        // Agregar el ScrollView al contenido de la actividad
         ((ViewGroup) vista).addView(scrollView);
     }
-}
+
+    public void interfazCamisetas (View vista){
+            // Crear el diseño principal LinearLayout
+            LinearLayout mainLayout = new LinearLayout(getContext());
+            mainLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.MATCH_PARENT
+            ));
+            mainLayout.setOrientation(LinearLayout.VERTICAL);
+            mainLayout.setPadding(16, 16, 16, 16);
+
+            // Crear un ScrollView para envolver el contenido
+            ScrollView scrollView = new ScrollView(getContext());
+            scrollView.setLayoutParams(new ScrollView.LayoutParams(
+                    ScrollView.LayoutParams.MATCH_PARENT,
+                    ScrollView.LayoutParams.MATCH_PARENT
+            ));
+
+            // Añadir el LinearLayout principal al ScrollView
+            scrollView.addView(mainLayout);
+
+            // Array de nombres para los campos
+            String[] nombresCampos = {"Marca", "Talla", "Color"};
+
+            // Array para los EditText correspondientes
+            EditText[] editTexts = new EditText[nombresCampos.length];
+
+            // Agregar los elementos al diseño principal
+            for (int i = 0; i < nombresCampos.length; i++) {
+                // Crear LinearLayout para el grupo actual
+                LinearLayout grupoLayout = new LinearLayout(getContext());
+                grupoLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
+                grupoLayout.setOrientation(LinearLayout.VERTICAL);
+                grupoLayout.setPadding(0, 0, 0, 32);
+                mainLayout.addView(grupoLayout);
+
+                // Crear TextView para el campo actual
+                TextView textView = new TextView(getContext());
+                textView.setText(nombresCampos[i]);
+                textView.setTypeface(null, Typeface.BOLD);
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                grupoLayout.addView(textView);
+
+                // Crear EditText para el campo actual
+                EditText editText = new EditText(getContext());
+                editText.setHint(nombresCampos[i]);
+                editTexts[i] = editText;
+                editText.setBackground(getResources().getDrawable(R.drawable.style_borde_et));
+                grupoLayout.addView(editText);
+            }
+
+            // Crear Button para Añadir
+            Button btnAñadir = new Button(getContext());
+            LinearLayout.LayoutParams btnParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+            );
+            btnParams.setMargins(0, 32, 0, 0);
+            btnAñadir.setLayoutParams(btnParams);
+            btnAñadir.setText("Añadir");
+            mainLayout.addView(btnAñadir);
+            btnAñadir.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                    if (user != null) {
+                        String usuario = user.getUid();
+                        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+
+                        DatabaseReference usuarioCamisetasRef = db.child("usuarios").child(usuario).child("Camisetas").child(editTexts[0].getText().toString());
+
+                        usuarioCamisetasRef.child("Talla").setValue(editTexts[1].getText().toString());
+                        usuarioCamisetasRef.child("Color").setValue(editTexts[2].getText().toString());
+
+                        Toast.makeText(getActivity(), "Camiseta guardada exitosamente", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), "No se pudo guardar la camiseta. Usuario no autenticado.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            ((ViewGroup) vista).addView(scrollView);
+        }
+    }
