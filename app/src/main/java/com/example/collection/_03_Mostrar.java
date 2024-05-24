@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _03_MostrarDiscos extends Fragment {
+public class _03_Mostrar extends Fragment {
 
     private DatabaseReference databaseReference;
     private List<String> discosKeys;
@@ -29,7 +29,7 @@ public class _03_MostrarDiscos extends Fragment {
     private ArrayAdapter<String> discosArrayAdapter;
     private String nombreGrupo, genSelect;
 
-    public _03_MostrarDiscos() {
+    public _03_Mostrar() {
         // Required empty public constructor
     }
 
@@ -85,7 +85,7 @@ public class _03_MostrarDiscos extends Fragment {
         args.putString("genSelect", genSelect);
         args.putString("nombreAlbum", albumSeleccionado);
         args.putString("nombreGrupo", nombreGrupo);
-        Fragment detalleDiscoFragment = new _04_MostrarDiscos();
+        Fragment detalleDiscoFragment = new _04_Mostrar();
         detalleDiscoFragment.setArguments(args);
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
         transaction.replace(R.id.frameagregar, detalleDiscoFragment);

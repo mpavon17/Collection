@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     public void mostrar(View v) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        _01_MostrarDiscos m = new _01_MostrarDiscos();
+        _01_Mostrar m = new _01_Mostrar();
         ft.replace(R.id.frameagregar,m);
         ft.addToBackStack(null);
         ft.commit();

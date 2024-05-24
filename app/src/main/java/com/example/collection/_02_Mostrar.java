@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _02_MostrarDiscos extends Fragment {
+public class _02_Mostrar extends Fragment {
 
     private DatabaseReference dbr;
     private List<String> discosKeys;
@@ -32,7 +32,7 @@ public class _02_MostrarDiscos extends Fragment {
     private ArrayAdapter<String> ArrayAdapter;
     private String genSelect;
 
-    public _02_MostrarDiscos() {
+    public _02_Mostrar() {
         // Required empty public constructor
     }
 
@@ -82,7 +82,7 @@ public class _02_MostrarDiscos extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String selectedDisc = ArrayAdapter.getItem(position);
-                _03_MostrarDiscos fragment = new _03_MostrarDiscos();
+                _03_Mostrar fragment = new _03_Mostrar();
                 Bundle args = new Bundle();
                 args.putString("genSelect",  genSelect);
                 args.putString("nombreGrupo", selectedDisc);

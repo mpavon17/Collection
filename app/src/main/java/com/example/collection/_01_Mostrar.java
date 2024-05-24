@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class _01_MostrarDiscos extends Fragment {
+public class _01_Mostrar extends Fragment {
 
     private DatabaseReference dbr;
     private List<String> discosKeys;
@@ -32,7 +32,7 @@ public class _01_MostrarDiscos extends Fragment {
     private ArrayAdapter<String> ArrayAdapter;
 
 
-    public _01_MostrarDiscos() {
+    public _01_Mostrar() {
         // Required empty public constructor
     }
 
@@ -80,7 +80,7 @@ public class _01_MostrarDiscos extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 //Aqui seleccionamo si es el disco o la camiseta
                 String generalSeleccionado = ArrayAdapter.getItem(position);
-                Fragment detalleDiscoFragment = new _02_MostrarDiscos();
+                Fragment detalleDiscoFragment = new _02_Mostrar();
 
                 Bundle bundle = new Bundle();
                 bundle.putString("generalSeleccionado", generalSeleccionado);
