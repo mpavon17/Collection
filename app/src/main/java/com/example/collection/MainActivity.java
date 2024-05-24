@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnCamisetas = findViewById(R.id.camisetas);
         Button btnLibros = findViewById(R.id.libros);
         Button btnCine = findViewById(R.id.cine);
+        Button btnCustom = findViewById(R.id.custom);
 
         String coleccionSeleccionada = "";
         if (btnDiscos.isPressed()) {
@@ -72,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
             coleccionSeleccionada = "Libros";
         }else if(btnCine.isPressed()){
             coleccionSeleccionada = "Cine";
+        }else if (btnCustom.isPressed()){
+            coleccionSeleccionada = "Custom";
         }
         Bundle args = new Bundle();
         args.putString("coleccionSeleccionada", coleccionSeleccionada);
