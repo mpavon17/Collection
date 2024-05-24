@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Button boton1;
     ImageButton salir, home;
     EditText nombre1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
-    public void salir (View v) {
+    public void salir(View v) {
         finish();
     }
 
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         Inicio i = new Inicio();
-        ft.replace(R.id.frameagregar,i);
+        ft.replace(R.id.frameagregar, i);
         ft.addToBackStack(null);
         ft.commit();
     }
@@ -59,12 +60,18 @@ public class MainActivity extends AppCompatActivity {
         AgregarFirebase d = new AgregarFirebase();
         Button btnDiscos = findViewById(R.id.discos);
         Button btnCamisetas = findViewById(R.id.camisetas);
+        Button btnLibros = findViewById(R.id.libros);
+        Button btnCine = findViewById(R.id.cine);
 
         String coleccionSeleccionada = "";
         if (btnDiscos.isPressed()) {
             coleccionSeleccionada = "Discos";
         } else if (btnCamisetas.isPressed()) {
             coleccionSeleccionada = "Camisetas";
+        } else if (btnLibros.isPressed()) {
+            coleccionSeleccionada = "Libros";
+        }else if(btnCine.isPressed()){
+            coleccionSeleccionada = "Cine";
         }
         Bundle args = new Bundle();
         args.putString("coleccionSeleccionada", coleccionSeleccionada);
@@ -79,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         _01_Mostrar m = new _01_Mostrar();
-        ft.replace(R.id.frameagregar,m);
+        ft.replace(R.id.frameagregar, m);
         ft.addToBackStack(null);
         ft.commit();
     }

@@ -58,13 +58,14 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/mecheros"
+                android:id="@+id/libros"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
+                android:onClick="discos"
                 android:backgroundTint="#FF5722"
-                android:text="Mecheros"
-                android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
+                android:text="Libros" /> <!-- Añade margen superior -->
 
             <Button
                 android:id="@+id/cine"
@@ -73,6 +74,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="#FF5722"
                 android:text="Cine"
+                android:onClick="discos"
                 android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
         </LinearLayout>
 
