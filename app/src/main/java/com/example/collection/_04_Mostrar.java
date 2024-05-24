@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -130,6 +131,32 @@ public class _04_Mostrar extends Fragment {
                                     }
                                 });
                                 container.addView(modifyButton);
+
+                                // Crear un Button para borrar los datos
+                                Button deleteButton = new Button(getContext());
+                                deleteButton.setText("Borrar");
+                                deleteButton.setLayoutParams(buttonParams);
+                                deleteButton.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                        if (user != null) {
+                                            String uid = user.getUid();
+                                            DatabaseReference groupRef = databaseReference.child("usuarios").child(uid).child(genSelect).child(grupoSeleccionado).child(albumSeleccionado);
+                                            groupRef.removeValue(new DatabaseReference.CompletionListener() {
+                                                @Override
+                                                public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                                                    if (error != null) {
+                                                        // Manejar el error si ocurre
+                                                    } else {
+                                                        // Datos borrados exitosamente
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    }
+                                });
+                                container.addView(deleteButton);
                             }
                         }
 
