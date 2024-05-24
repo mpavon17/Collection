@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,13 +17,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class mostrarDiscos12 extends Fragment {
+public class _04_MostrarDiscos extends Fragment {
 
     private TextView textViewAnio, textViewFechadeAdquisicion, textViewFormato;
     private DatabaseReference databaseReference;
     private String anio, fechadeAdquisicion, formato;
+    private String genSelect, grupoSeleccionado, nombreAlbum;
 
-    public mostrarDiscos12() {
+    public _04_MostrarDiscos() {
         // Required empty public constructor
     }
 
@@ -38,8 +38,9 @@ public class mostrarDiscos12 extends Fragment {
         inicializarFirebase();
         Bundle args = getArguments();
         if (args != null) {
-            String grupoSeleccionado = args.getString("nombreGrupo", "");
-            String nombreAlbum = args.getString("nombreAlbum", "");
+            genSelect = args.getString("genSelect", "");
+             grupoSeleccionado = args.getString("nombreGrupo", "");
+           nombreAlbum = args.getString("nombreAlbum", "");
             mostrarDatosDelAlbum(grupoSeleccionado, nombreAlbum);
         }
         return view;
@@ -49,7 +50,7 @@ public class mostrarDiscos12 extends Fragment {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
             String uid = currentUser.getUid();
-            databaseReference.child("usuarios").child(uid).child("Discos").child(grupoSeleccionado).child(albumSeleccionado)
+            databaseReference.child("usuarios").child(uid).child(genSelect).child(grupoSeleccionado).child(albumSeleccionado)
                     .addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {

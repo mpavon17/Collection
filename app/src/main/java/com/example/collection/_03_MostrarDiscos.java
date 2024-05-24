@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,15 +21,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mostrarDiscosbbdd extends Fragment {
+public class _03_MostrarDiscos extends Fragment {
 
     private DatabaseReference databaseReference;
     private List<String> discosKeys;
     private ListView lvDiscos;
     private ArrayAdapter<String> discosArrayAdapter;
-    private String nombreGrupo;
+    private String nombreGrupo, genSelect;
 
-    public mostrarDiscosbbdd() {
+    public _03_MostrarDiscos() {
         // Required empty public constructor
     }
 
@@ -43,6 +42,7 @@ public class mostrarDiscosbbdd extends Fragment {
         inicializarFirebase();
         Bundle args = getArguments();
         if (args != null) {
+            genSelect = args.getString("genSelect", "");
             nombreGrupo = args.getString("nombreGrupo", "");
         }
         listarAlbumes(nombreGrupo);
@@ -62,7 +62,7 @@ public class mostrarDiscosbbdd extends Fragment {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
             String uid = currentUser.getUid();
-            databaseReference.child("usuarios").child(uid).child("Discos").child(grupoSeleccionado).get()
+            databaseReference.child("usuarios").child(uid).child(genSelect).child(grupoSeleccionado).get()
                     .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -82,9 +82,10 @@ public class mostrarDiscosbbdd extends Fragment {
 
     private void mostrarDetallesDelAlbum(String albumSeleccionado) {
         Bundle args = new Bundle();
+        args.putString("genSelect", genSelect);
         args.putString("nombreAlbum", albumSeleccionado);
         args.putString("nombreGrupo", nombreGrupo);
-        Fragment detalleDiscoFragment = new mostrarDiscos12();
+        Fragment detalleDiscoFragment = new _04_MostrarDiscos();
         detalleDiscoFragment.setArguments(args);
         FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
         transaction.replace(R.id.frameagregar, detalleDiscoFragment);

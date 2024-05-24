@@ -18,21 +18,21 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MostrarDiscos extends Fragment {
+public class _01_MostrarDiscos extends Fragment {
 
     private DatabaseReference dbr;
     private List<String> discosKeys;
     private ListView lvDiscos;
-    private ArrayAdapter<String> discosArrayAdapter;
+    private ArrayAdapter<String> ArrayAdapter;
 
-    public MostrarDiscos() {
+
+    public _01_MostrarDiscos() {
         // Required empty public constructor
     }
 
@@ -62,8 +62,8 @@ public class MostrarDiscos extends Fragment {
                             discosKeys.add(key);
                         }
                     }
-                    discosArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, discosKeys);
-                    lvDiscos.setAdapter(discosArrayAdapter);
+                    ArrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, discosKeys);
+                    lvDiscos.setAdapter(ArrayAdapter);
                 }
             });
         }
@@ -78,11 +78,12 @@ public class MostrarDiscos extends Fragment {
         lvDiscos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String selectedDisc = discosArrayAdapter.getItem(position);
-                Fragment detalleDiscoFragment = new BbddDiscos();
+                //Aqui seleccionamo si es el disco o la camiseta
+                String generalSeleccionado = ArrayAdapter.getItem(position);
+                Fragment detalleDiscoFragment = new _02_MostrarDiscos();
 
                 Bundle bundle = new Bundle();
-                bundle.putString("selectedDisc", selectedDisc);
+                bundle.putString("generalSeleccionado", generalSeleccionado);
                 detalleDiscoFragment.setArguments(bundle);
 
                 FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();

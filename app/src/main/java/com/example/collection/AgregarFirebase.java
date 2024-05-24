@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +23,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Discos extends Fragment {
+public class AgregarFirebase extends Fragment {
 
-    public Discos() {
+    public AgregarFirebase() {
         // Required empty public constructor
     }
 
@@ -188,7 +187,7 @@ public class Discos extends Fragment {
             scrollView.addView(mainLayout);
 
             // Array de nombres para los campos
-            String[] nombresCampos = {"Marca", "Talla", "Color"};
+            String[] nombresCampos = {"Equipo", "Jugador", "Dorsal", "Talla", "Color"};
 
             // Array para los EditText correspondientes
             EditText[] editTexts = new EditText[nombresCampos.length];
@@ -239,10 +238,11 @@ public class Discos extends Fragment {
                         String usuario = user.getUid();
                         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
-                        DatabaseReference usuarioCamisetasRef = db.child("usuarios").child(usuario).child("Camisetas").child(editTexts[0].getText().toString());
+                        DatabaseReference usuarioCamisetasRef = db.child("usuarios").child(usuario).child("Camisetas").child(editTexts[0].getText().toString()).child(editTexts[1].getText().toString());
 
-                        usuarioCamisetasRef.child("Talla").setValue(editTexts[1].getText().toString());
-                        usuarioCamisetasRef.child("Color").setValue(editTexts[2].getText().toString());
+                        usuarioCamisetasRef.child("Dorsal").setValue(editTexts[2].getText().toString());
+                        usuarioCamisetasRef.child("Talla").setValue(editTexts[3].getText().toString());
+                        usuarioCamisetasRef.child("Color").setValue(editTexts[4].getText().toString());
 
                         Toast.makeText(getActivity(), "Camiseta guardada exitosamente", Toast.LENGTH_SHORT).show();
                     } else {

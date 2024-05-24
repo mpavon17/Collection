@@ -2,7 +2,6 @@ package com.example.collection;
 
 import static android.app.PendingIntent.getActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     public void discos(View v) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        Discos d = new Discos();
+        AgregarFirebase d = new AgregarFirebase();
         Button btnDiscos = findViewById(R.id.discos);
         Button btnCamisetas = findViewById(R.id.camisetas);
 
@@ -79,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     public void mostrar(View v) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        MostrarDiscos m = new MostrarDiscos();
+        _01_MostrarDiscos m = new _01_MostrarDiscos();
         ft.replace(R.id.frameagregar,m);
         ft.addToBackStack(null);
         ft.commit();
