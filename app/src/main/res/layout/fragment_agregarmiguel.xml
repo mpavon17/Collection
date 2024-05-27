@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Agregar">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elige una Colección"
+            android:textAlignment="center"
+            android:textColor="#070101"
+            android:textSize="20sp"
+            android:layout_marginBottom="16dp" /> <!-- Añade margen inferior -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/discos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FF5722"
+                android:onClick="discos"
+                android:text="Discos"
+                android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
+
+            <Button
+                android:id="@+id/camisetas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="discos"
+                android:backgroundTint="#FF5722"
+                android:text="Camisetas"
+                android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/libros"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:onClick="discos"
+                android:backgroundTint="#FF5722"
+                android:text="Libros" /> <!-- Añade margen superior -->
+
+            <Button
+                android:id="@+id/movie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#FF5722"
+                android:text="Cine"
+                android:onClick="discos"
+                android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crea tu Coollection"
+            android:textAlignment="center"
+            android:textColor="#090505"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp" /> <!-- Añade margen superior -->
+
+        <Button
+            android:id="@+id/custom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF5722"
+            android:text="Customizable"
+            android:onClick="discos"
+            android:layout_marginTop="8dp" /> <!-- Añade margen superior -->
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

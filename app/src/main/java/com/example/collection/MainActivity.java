@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnDiscos = findViewById(R.id.discos);
         Button btnCamisetas = findViewById(R.id.camisetas);
         Button btnLibros = findViewById(R.id.libros);
-        Button btnCine = findViewById(R.id.cine);
+        Button btnCine = findViewById(R.id.movie);
         Button btnCustom = findViewById(R.id.custom);
 
         String coleccionSeleccionada = "";
