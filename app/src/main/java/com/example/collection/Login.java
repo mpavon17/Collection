@@ -1,7 +1,10 @@
 package com.example.collection;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,7 +65,19 @@ public class Login extends AppCompatActivity {
                         }
                     });
                 } else {
-                    Toast.makeText(Login.this, "Error al crear usuario: Por favor, complete los campos de usuario y contraseña", Toast.LENGTH_SHORT).show();
+                    LayoutInflater inflater = LayoutInflater.from(Login.this);
+                    View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+                    builder.setPositiveButton("Cerrar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.setView(dialogView);
+                    dialog.show();
                 }
             }
         });

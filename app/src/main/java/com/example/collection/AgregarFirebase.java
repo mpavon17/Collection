@@ -63,7 +63,7 @@ public class AgregarFirebase extends Fragment {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public void interfazCustomizable(View vista) {
-        // Crear un ScrollView para envolver todo el diseño
+
         ScrollView scrollView = new ScrollView(getContext());
         scrollView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
 
@@ -217,8 +217,6 @@ public class AgregarFirebase extends Fragment {
         // Agregar el ScrollView al ViewGroup pasado como parámetro
         ((ViewGroup) vista).addView(scrollView);
     }
-
-
 
     @SuppressLint("UseCompatLoadingForDrawables")
     public void interfazCine(View vista) {

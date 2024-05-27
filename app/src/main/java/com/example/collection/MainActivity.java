@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnCamisetas = findViewById(R.id.camisetas);
         Button btnLibros = findViewById(R.id.libros);
         Button btnCine = findViewById(R.id.movie);
-        Button btnCustom = findViewById(R.id.custom);
+        Button btnCustom = findViewById(R.id.add);
 
         String coleccionSeleccionada = "";
         if (btnDiscos.isPressed()) {
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         args.putString("coleccionSeleccionada", coleccionSeleccionada);
         d.setArguments(args);
 
-        ft.replace(R.id.frameagregar, d);
+        ft.replace(R.id.frameMostrarDinamico, d);
         ft.addToBackStack(null);
         ft.commit();
     }
