@@ -13,16 +13,22 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="Select the Collection"
-        android:textAlignment="center"
-        android:textColor="#7A7979"
-        android:textSize="18sp" />
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:includeFontPadding="false"
+        android:paddingLeft="5dp"
+        android:text="SELECT THE COOLLECTION"
+        android:textAlignment="textStart"
+        android:textColor="#227E8F"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="@drawable/border_linear_layout2"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,18 +41,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="#FDFDFD"
+                android:backgroundTint="#E4E3E3"
+                android:fontFamily="sans-serif"
                 android:onClick="discos"
                 android:paddingLeft="13dp"
                 android:paddingRight="5dp"
+                android:shadowColor="#0E0D0D"
                 android:text="Vinyl"
                 android:textColor="#0B0909"
+                android:textSize="12sp"
                 app:cornerRadius="5dp"
                 app:icon="@drawable/vinilo"
                 app:iconPadding="0dp"
                 app:iconSize="36dp"
                 app:iconTint="#090909"
-                app:strokeColor="#0E0D0D"
+                app:strokeColor="#FDFCFC"
                 app:strokeWidth="1dp" />
 
             <Button
@@ -55,18 +64,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="#FCFCFC"
+                android:backgroundTint="#E4E3E3"
+                android:fontFamily="sans-serif"
                 android:onClick="discos"
                 android:paddingLeft="13dp"
                 android:paddingRight="5dp"
-                android:text="Socer"
+                android:text="Soccer"
                 android:textColor="#0B0909"
+                android:textSize="12sp"
                 app:cornerRadius="5dp"
                 app:icon="@drawable/jersey"
                 app:iconPadding="0dp"
                 app:iconSize="36dp"
                 app:iconTint="#050505"
-                app:strokeColor="#090707"
+                app:strokeColor="#FDFCFC"
                 app:strokeWidth="1dp" />
 
             <Button
@@ -75,18 +86,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="#FCFCFC"
+                android:backgroundTint="#E4E3E3"
+                android:fontFamily="sans-serif"
                 android:onClick="discos"
                 android:paddingLeft="13dp"
                 android:paddingRight="5dp"
                 android:text="Movie"
                 android:textColor="#0B0909"
+                android:textSize="12sp"
                 app:cornerRadius="5dp"
                 app:icon="@drawable/entradascine"
                 app:iconPadding="0dp"
                 app:iconSize="36dp"
                 app:iconTint="#040303"
-                app:strokeColor="#070606"
+                app:strokeColor="#FDFCFC"
                 app:strokeWidth="1dp" />
 
             <Button
@@ -94,18 +107,20 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#FDFDFD"
+                android:backgroundTint="#E4E3E3"
+                android:fontFamily="sans-serif"
                 android:onClick="discos"
                 android:paddingLeft="13dp"
                 android:paddingRight="5dp"
                 android:text="Books"
                 android:textColor="#0B0909"
+                android:textSize="12sp"
                 app:cornerRadius="5dp"
                 app:icon="@drawable/libros"
                 app:iconPadding="0dp"
                 app:iconSize="36dp"
                 app:iconTint="#050505"
-                app:strokeColor="#050404"
+                app:strokeColor="#FDFCFC"
                 app:strokeWidth="1dp" />
 
         </LinearLayout>
@@ -120,17 +135,20 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#FBFBFB"
+                android:backgroundTint="#E4E3E3"
+                android:fontFamily="sans-serif"
                 android:onClick="discos"
                 android:text="Custom"
                 android:textColor="#0B0909"
+                android:textSize="14sp"
                 app:cornerRadius="5dp"
                 app:icon="@drawable/add"
                 app:iconSize="36dp"
                 app:iconTint="#040303"
-                app:strokeColor="#090707"
+                app:strokeColor="#FDFCFC"
                 app:strokeWidth="1dp" />
         </LinearLayout>
+
     </LinearLayout>
 
     <View
@@ -157,7 +175,7 @@
             android:fontFamily="sans-serif"
             android:text="Fill the fields of the selected Collection"
             android:textAlignment="center"
-            android:textColor="#7A7979"
+            android:textColor="#227E8F"
             android:textSize="16sp" />
 
         <FrameLayout
@@ -166,33 +184,6 @@
             android:layout_height="0dp"
             android:layout_weight="1">
         </FrameLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/save"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="3dp"
-            android:backgroundTint="#227E8F"
-            android:text="Save"
-            android:textAlignment="center"
-            app:cornerRadius="5dp" />
-
-        <Button
-            android:id="@+id/drop"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:backgroundTint="#ED5843"
-            android:text="Drop"
-            android:textAlignment="center"
-            app:cornerRadius="5dp" />
     </LinearLayout>
 
 </LinearLayout>

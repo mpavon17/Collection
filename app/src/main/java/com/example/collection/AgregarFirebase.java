@@ -75,7 +75,7 @@ public class AgregarFirebase extends Fragment {
 
         // Crear TextView "Dime cuántas columnas vas a usar"
         TextView columnasTextView = new TextView(getContext());
-        columnasTextView.setText("Dime cuántas columnas vas a usar:");
+        columnasTextView.setText("Choose the number of columns");
         columnasTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         columnasTextView.setTypeface(null, Typeface.BOLD);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -101,7 +101,7 @@ public class AgregarFirebase extends Fragment {
 
         // Agregar TextView "Tipo:"
         TextView tipoTextView = new TextView(getContext());
-        tipoTextView.setText("Tipo:");
+        tipoTextView.setText("Collection´s Name:");
         tipoTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         tipoTextView.setTypeface(null, Typeface.BOLD);
         tipoTextView.setLayoutParams(params); // Usar los mismos parámetros de diseño
@@ -115,7 +115,7 @@ public class AgregarFirebase extends Fragment {
 
         // Agregar TextView "Nombre:"
         TextView nombreTextView = new TextView(getContext());
-        nombreTextView.setText("Nombre:");
+        nombreTextView.setText("Item:");
         nombreTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         nombreTextView.setTypeface(null, Typeface.BOLD);
         nombreTextView.setLayoutParams(params); // Usar los mismos parámetros de diseño

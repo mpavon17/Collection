@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
+import android.graphics.Color;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,15 +70,12 @@ public class Login extends AppCompatActivity {
                     View dialogView = inflater.inflate(R.layout.custom_dialog, null);
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
-                    builder.setPositiveButton("Cerrar", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
+                    builder.setView(dialogView);
+
                     AlertDialog dialog = builder.create();
-                    dialog.setView(dialogView);
                     dialog.show();
+
+
                 }
             }
         });

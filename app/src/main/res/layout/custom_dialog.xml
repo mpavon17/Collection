@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearError"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/border_linear_layout2"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -9,25 +11,29 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Instrucciones de Registro"
+        android:text="Registration Instructions"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1º Rellene el campo con un correo electronico" />
+        android:text="1º Fill in the field with an email address" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="2º Rellene la contraseña (Al menos 6 caracteres)" />
+        android:text="2º Enter the password (At least 6 characters)" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="3º Dale al botón de Registro" />
+        android:text="3º Click on the Sign up button" />
 </LinearLayout>
