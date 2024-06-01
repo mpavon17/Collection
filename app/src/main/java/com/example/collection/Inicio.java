@@ -7,11 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 
 public class Inicio extends Fragment {
-
     private WebView webView;
     public Inicio() {
         // Required empty public constructor
