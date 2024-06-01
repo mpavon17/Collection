@@ -16,5 +16,10 @@
         app:layout_constraintStart_toStartOf="parent">
 
     </FrameLayout>
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="712dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,8 +2,11 @@ package com.example.collection;
 
 import static android.app.PendingIntent.getActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -25,11 +28,22 @@ public class MainActivity extends AppCompatActivity {
     Button boton1;
     ImageButton salir, home;
     EditText nombre1;
+    private WebView webView;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mostrarWeb();
+    }
+
+    public void mostrarWeb (){
+        webView = findViewById(R.id.webView);
+        //WebSettings webSettings = webView.getSettings();
+        webView.clearCache(true);
+       // webSettings.setJavaScriptEnabled(true);
+        webView.loadUrl("file:///android_asset/coollections.html");
     }
 
     public void agregar(View v) {
@@ -79,13 +93,13 @@ public class MainActivity extends AppCompatActivity {
         Bundle args = new Bundle();
         args.putString("coleccionSeleccionada", coleccionSeleccionada);
         d.setArguments(args);
-
         ft.replace(R.id.frameMostrarDinamico, d);
         ft.addToBackStack(null);
         ft.commit();
     }
 
     public void mostrar(View v) {
+        webView.setVisibility(View.GONE);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         _01_Mostrar m = new _01_Mostrar();
@@ -93,6 +107,5 @@ public class MainActivity extends AppCompatActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
-
 
 }
